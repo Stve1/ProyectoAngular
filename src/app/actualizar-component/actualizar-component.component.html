@@ -1,6 +1,6 @@
 <p>actualizar-component works!</p>
 
-  <form class="form-group row">
+  <form class="form-group row" style="padding: 20px;">
     <div class="form-group col-md-3">
       <label for="nombre">Nombre:</label>
       <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="cuadroNombre">
@@ -24,4 +24,8 @@
   </form>
 
   <div style="text-align: center;">
-    <button class="btn btn-primary" (click)="volverHome()">Volver</button></div>
+    <button class="btn btn-success" style="margin: 5px 20px;" (click)="actualizarEmpleado()">Actualizar</button>
+    <button class="btn btn-danger" style="margin: 5px 20px;" (click)="eliminarEmpleado()">Eliminar</button>
+    <button class="btn btn-primary" style="margin: 5px 20px;" (click)="volverHome()">Volver</button>
+  </div>
+

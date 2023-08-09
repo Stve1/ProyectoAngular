@@ -23,6 +23,7 @@ export class ActualizarComponentComponent implements OnInit{
     this.indice = this.route.snapshot.params['id'];
 
     let empleado:Empleado=this.empleadosService.encontrarEmpleado(this.indice);
+
     this.cuadroNombre = empleado.nombre;
     this.cuadroApellido = empleado.apellido;
     this.cuadroCargo= empleado.cargo;
@@ -35,9 +36,14 @@ export class ActualizarComponentComponent implements OnInit{
     this.router.navigate(['']);
   }
 
-  actualizar(){
+  actualizarEmpleado(){
     let miEmpleado=new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
-    this.empleadosService.agregarEmpleadoServicio(miEmpleado);
+    this.empleadosService.actualizarServicio(this.indice ,miEmpleado);
+    this.router.navigate(['']);
+  }
+
+  eliminarEmpleado(){
+    this.empleadosService.eliminarServicio(this.indice);
     this.router.navigate(['']);
   }
 

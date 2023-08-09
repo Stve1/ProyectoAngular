@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col">
       <div >
-       <a href="actualizar/"> {{indice+1}}: {{empleadoDeLista.nombre}}  {{empleadoDeLista.apellido}}  {{empleadoDeLista.cargo}}  {{empleadoDeLista.salario}}  </a>
+       <a [routerLink]="['/actualizar', indice]"> {{indice+1}}: {{empleadoDeLista.nombre}}  {{empleadoDeLista.apellido}}  {{empleadoDeLista.cargo}}  {{empleadoDeLista.salario}}  </a>
       </div>
 
       <ul style="list-style: none;">

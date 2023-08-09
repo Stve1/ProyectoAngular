@@ -19,7 +19,7 @@ const appRoutes:Routes=[
   {path:'proyectos',component:ProyectosComponentComponent},
   {path:'quienes',component:QuienesComponentComponent},
   {path:'contactanos',component:ContactanosComponentComponent},
-  {path:'actualizar/id',component:ActualizarComponentComponent}
+  {path:'actualizar/:id',component:ActualizarComponentComponent}
 ];
 
 @NgModule({
