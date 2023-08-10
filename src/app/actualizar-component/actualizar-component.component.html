@@ -24,8 +24,10 @@
   </form>
 
   <div style="text-align: center;">
-    <button class="btn btn-success" style="margin: 5px 20px;" (click)="actualizarEmpleado()">Actualizar</button>
-    <button class="btn btn-danger" style="margin: 5px 20px;" (click)="eliminarEmpleado()">Eliminar</button>
-    <button class="btn btn-primary" style="margin: 5px 20px;" (click)="volverHome()">Volver</button>
+      <button class="btn btn-success" style="margin: 5px 20px;" (click)="accionEmpleado()" *ngIf="accion==1; else borrar">Actualizar</button>
+      <ng-template #borrar>
+        <button class="btn btn-danger" style="margin: 5px 20px;" (click)="accionEmpleado()">Eliminar</button>
+      </ng-template>
+      <button class="btn btn-primary" style="margin: 5px 20px;" (click)="volverHome()">Volver</button>
   </div>
 

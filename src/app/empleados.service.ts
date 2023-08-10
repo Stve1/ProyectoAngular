@@ -37,7 +37,7 @@ export class EmpleadosService{
   eliminarServicio(indice:number){
     let empleadoEliminar = this.empleados[indice];
     this.empleados.splice(indice, 1)
-    this.servicioVentanaEmergente.muestraMensaje("El empleado"+ "\n" + empleadoEliminar.nombre + "" +
+    this.servicioVentanaEmergente.muestraMensaje("El empleado"+ "\n" + empleadoEliminar.nombre + " " +
     empleadoEliminar.apellido + " ha sido eliminado.")
   }
 

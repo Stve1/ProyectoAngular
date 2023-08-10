@@ -12,13 +12,15 @@ import { Empleado } from '../empleado.model';
 export class ActualizarComponentComponent implements OnInit{
   titulo = 'app empleados';
 
-
-
   constructor(private router:Router, private miServicio:ServicioEmpleadosService, private empleadosService:EmpleadosService, private route:ActivatedRoute){}
 
+  accion:number;
   empleados:Empleado[]=[];
 
   ngOnInit(): void {
+
+    this.accion = parseInt(this.route.snapshot.queryParams['accion']);
+
     this.empleados = this.empleadosService.empleados;
     this.indice = this.route.snapshot.params['id'];
 
@@ -30,21 +32,21 @@ export class ActualizarComponentComponent implements OnInit{
     this.cuadroSalario= empleado.salario;
   }
 
-
-
   volverHome(){
     this.router.navigate(['']);
   }
 
-  actualizarEmpleado(){
-    let miEmpleado=new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
-    this.empleadosService.actualizarServicio(this.indice ,miEmpleado);
-    this.router.navigate(['']);
-  }
+  accionEmpleado(){
+    if(this.accion==1){
 
-  eliminarEmpleado(){
-    this.empleadosService.eliminarServicio(this.indice);
-    this.router.navigate(['']);
+      let miEmpleado=new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
+      this.empleadosService.actualizarServicio(this.indice ,miEmpleado);
+      this.volverHome()
+
+    } else{
+        this.empleadosService.eliminarServicio(this.indice);
+        this.volverHome()
+    }
   }
 
   cuadroNombre:string = "";
